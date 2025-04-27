@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Task 3-1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/ftask3-1.css">
+</head>
+<body>
+    <main>
+        <nav class="navOption">
+            <a href="https://jstn-rnn19.github.io/EDM-Portfolio-Justine-Reinn-Sanidad/" target="_self" rel="noopener noreferrer" class="EDM">EDM Portfolio</a>
+            <a href="https://github.com/jstn-rnn19/EDM-Portfolio-Justine-Reinn-Sanidad" target="_self" rel="noopener noreferrer" class="githubRepo">Github Repo</a>
+        </nav>
+        <section class="title">
+            <h1 class="Title">Final Task 3-1</h1>
+            <p class="descrip">Using MYSQL Clause</p>
+        </section>
+        <section class="container">
+            <h1 class="Title">Instructions:</h1>
+            <ol>
+                <li>Create a database named online_courseDB</li>
+                <li>Use the online_courseDB</li>
+                <li>Copy and paste the initial query then perform the SELECT statements required for each problems in the figure below: <a href="file/online_coursedb_courses.sql" target="_blank" rel="noopener noreferrer">download onlineCourse.sql file</a></li>
+            </ol>
+            <code>
+                CREATE TABLE courses   ( id INT AUTO_INCREMENT PRIMARY KEY, course_name VARCHAR(255) NOT NULL,   category VARCHAR(100) NOT NULL,   enrollment_limit INT NOT NULL,   students_enrolled INT NOT NULL );
+            </code>
+            <code>
+                INSERT INTO courses (course_name, category, enrollment_limit, students_enrolled) VALUES 
+                ('Data Science', 'Technology', 50, 45), 
+                ('Graphic Design', 'Arts', 30, 25), 
+                ('Digital Marketing', 'Business', 40, 35), 
+                ('Introduction to Python', 'Technology', 100, 90), 
+                ('Creative Writing', 'Literature', 25, 20), 
+                ('UX/UI Design', 'Arts', 50, 40), 
+                ('Project Management', 'Business', 60, 55), 
+                ('Artificial Intelligence', 'Technology', 50, 48), 
+                ('Public Speaking', 'Communication', 30, 28), 
+                ('Photography', 'Arts', 25, 18), 
+                ('Web Development', 'Technology', 75, 70), 
+                ('SEO Strategies', 'Business', 30, 29), 
+                ('Blockchain Basics', 'Technology', 50, 50), 
+                ('Accounting 101', 'Business', 45, 40), 
+                ('Film Editing', 'Arts', 35, 33), 
+                ('Machine Learning', 'Technology', 60, 55), 
+                ('Speech Writing', 'Communication', 20, 15),
+                ('Interior Design', 'Arts', 40, 38),
+                ('Leadership Training', 'Business', 50, 48), 
+                ('Cybersecurity', 'Technology', 70, 65);
+            </code>
+        </section>
+        <section class="container">
+            <h1 class="Title">Item Description</h1>
+            <p class="descrip">the following are already implemented</p>
+            <ul>
+                <li>A table named courses with the following fields:
+                    <ul>
+                        <li>id: Unique integer, auto-increment, primary key.</li>
+                        <li>course_name: String (VARCHAR), not null.</li>
+                        <li>category: String (VARCHAR), not null.</li>
+                        <li>enrollment_limit: Integer, not null.</li>
+                        <li>students_enrolled: Integer, not null.</li>
+                    </ul>
+                </li>
+                <li>20 courses are already present.</li>
+            </ul>
+        </section>
+        <SEction class="container">
+            <h1 class="Title">Required Outputs</h1>
+            <ol>
+                <li>Query statements (Task 1-5)</li>
+                <li>Output of each query (Task 1-5)</li>
+                <li>SQL copy of the database and table structures</li>
+            </ol>
+        </SEction>
+        <section class="container">
+            <h1 class="Title">The following are the tasks that need to be implemented using MySQL statements. Make sure to complete them in the order specified:</h1>
+            <div class="card">
+                <h3 class="taskTitle">Task 1:</h3>
+                <p class="taskDes">Retrieve all courses where students_enrolled is less than the enrollment_limit.</p>
+                <h4 class="tableStruc">table structure and sql query</h4>
+                <code class="taskCode">SELECT * FROM courses WHERE students_enrolled < enrollment_limit;</code>
+                <img src="image/task3-1_1.webp" alt="">
+            </div>
+            <div class="card">
+                <h3 class="taskTitle">Task 2:</h3>
+                <p class="taskDes">Group courses by category and calculate the total number of students enrolled for each category.</p>
+                <h4 class="tableStruc">table structure and sql query</h4>
+                <code class="taskCode">SELECT category, SUM(students_enrolled) AS 'Total Enrolled Student' FROM courses GROUP BY category;</code>
+                <img src="image/task3-1_2.webp" alt="">
+            </div>
+            <div class="card">
+                <h3 class="taskTitle">Task 3:</h3>
+                <p class="taskDes">Retrieve the courses that are fully enrolled (i.e., students_enrolled equals enrollment_limit).</p>
+                <h4 class="tableStruc">table structure and sql query</h4>
+                <code class="taskCode">SELECT * FROM courses WHERE students_enrolled = enrollment_limit;</code>
+                <img src="image/task3-1_3.webp" alt="">
+            </div>
+            <div class="card">
+                <h3 class="taskTitle">Task 4:</h3>
+                <p class="taskDes">Calculate the total number of students enrolled across all courses.</p>
+                <h4 class="tableStruc">table structure and sql query</h4>
+                <code class="taskCode">SELECT SUM(students_enrolled) AS 'Total Enrolled Student' FROM courses;</code>
+                <img src="image/task3-1_4.webp" alt="">
+            </div>
+            <div class="card">
+                <h3 class="taskTitle">Task 5:</h3>
+                <p class="taskDes">Sort courses by students_enrolled in ascending order.</p>
+                <h4 class="tableStruc">table structure and sql query</h4>
+                <code class="taskCode">SELECT * FROM courses ORDER BY students_enrolled ASC;</code>
+                <img src="image/task3-1_5.webp" alt="">
+            </div>
+        </section>
+        <section class="footer">
+            <h1 class="Title">Here is my MySQL file</h1>
+            <a href="file/online_coursedb_courses0.sql" target="_blank" rel="noopener noreferrer" class="files">MySQL file</a>
+        </section>
+    </main>
+</body>
+</html>
